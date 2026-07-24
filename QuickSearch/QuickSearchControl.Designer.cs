@@ -47,6 +47,7 @@
             this.groupBoxOptions = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelOptions = new System.Windows.Forms.TableLayoutPanel();
             this.checkBoxCase = new System.Windows.Forms.CheckBox();
+            this.checkBoxDiacritics = new System.Windows.Forms.CheckBox();
             this.checkBoxExclude = new System.Windows.Forms.CheckBox();
             this.checkBoxTags = new System.Windows.Forms.CheckBox();
             this.checkBoxGroupSettings = new System.Windows.Forms.CheckBox();
@@ -269,12 +270,14 @@
             this.tableLayoutPanelOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanelOptions.Controls.Add(this.checkBoxCase, 0, 0);
-            this.tableLayoutPanelOptions.Controls.Add(this.checkBoxExclude, 0, 1);
-            this.tableLayoutPanelOptions.Controls.Add(this.checkBoxGroupSettings, 0, 2);
+            this.tableLayoutPanelOptions.Controls.Add(this.checkBoxDiacritics, 0, 1);
+            this.tableLayoutPanelOptions.Controls.Add(this.checkBoxExclude, 0, 2);
+            this.tableLayoutPanelOptions.Controls.Add(this.checkBoxGroupSettings, 0, 3);
             this.tableLayoutPanelOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelOptions.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanelOptions.Name = "tableLayoutPanelOptions";
-            this.tableLayoutPanelOptions.RowCount = 2;
+            this.tableLayoutPanelOptions.RowCount = 4;
+            this.tableLayoutPanelOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -292,9 +295,21 @@
             this.checkBoxCase.TabIndex = 10;
             this.checkBoxCase.UseVisualStyleBackColor = true;
             this.checkBoxCase.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Control_PreviewKeyDown);
-            // 
+            //
+            // checkBoxDiacritics
+            //
+            this.checkBoxDiacritics.AutoSize = true;
+            this.checkBoxDiacritics.Checked = global::QuickSearch.Properties.Settings.Default.SearchMatchDiacritics;
+            this.checkBoxDiacritics.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::QuickSearch.Properties.Settings.Default, "SearchMatchDiacritics", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxDiacritics.Location = new System.Drawing.Point(3, 26);
+            this.checkBoxDiacritics.Name = "checkBoxDiacritics";
+            this.checkBoxDiacritics.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxDiacritics.TabIndex = 13;
+            this.checkBoxDiacritics.UseVisualStyleBackColor = true;
+            this.checkBoxDiacritics.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Control_PreviewKeyDown);
+            //
             // checkBoxExclude
-            // 
+            //
             this.checkBoxExclude.AutoSize = true;
             this.checkBoxExclude.Location = new System.Drawing.Point(3, 26);
             this.checkBoxExclude.Name = "checkBoxExclude";
@@ -392,6 +407,7 @@
         private System.Windows.Forms.CheckBox checkBoxOther;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelOptions;
         private System.Windows.Forms.CheckBox checkBoxCase;
+        private System.Windows.Forms.CheckBox checkBoxDiacritics;
         private System.Windows.Forms.CheckBox checkBoxExclude;
         private System.Windows.Forms.CheckBox checkBoxGroupSettings;
         public PaddedComboBox comboBoxSearch;

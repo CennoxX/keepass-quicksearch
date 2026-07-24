@@ -118,7 +118,19 @@ namespace QuickSearch.Properties {
                 this["SearchCaseSensitive"] = value;
             }
         }
-        
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SearchMatchDiacritics {
+            get {
+                return ((bool)(this["SearchMatchDiacritics"]));
+            }
+            set {
+                this["SearchMatchDiacritics"] = value;
+            }
+        }
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]

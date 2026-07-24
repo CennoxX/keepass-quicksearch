@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace QuickSearch
@@ -39,6 +39,7 @@ namespace QuickSearch
         private readonly bool _searchInOther;
         private readonly bool _searchExcludeExpired;
         private readonly bool _searchIgnoreGroupSettings;
+        private readonly bool _searchMatchDiacritics;
 
         public List<PwEntry> resultEntries;
 
@@ -55,6 +56,7 @@ namespace QuickSearch
             _searchInTags = Settings.Default.SearchInTags;
             _searchExcludeExpired = Program.Config.MainWindow.QuickFindExcludeExpired;
             _searchIgnoreGroupSettings = Settings.Default.SearchIgnoreGroupSettings;
+            _searchMatchDiacritics = Settings.Default.SearchMatchDiacritics;
             if (Settings.Default.SearchCaseSensitive)
             {
                 _searchStringComparison = StringComparison.Ordinal;
@@ -217,7 +219,10 @@ namespace QuickSearch
                     if (_regex != null && _regex.IsMatch(fieldValue))
                         matchedWords.Add(word);
                 }
-                else if (fieldValue.IndexOf(word, StringComparison.OrdinalIgnoreCase) >= 0)
+                else if (_searchMatchDiacritics
+                    ? fieldValue.IndexOf(word, StringComparison.OrdinalIgnoreCase) >= 0
+                    : CultureInfo.CurrentCulture.CompareInfo.IndexOf(fieldValue, word,
+                        CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace) >= 0)
                 {
                     matchedWords.Add(word);
                 }
@@ -228,18 +233,19 @@ namespace QuickSearch
 
         private bool SettingsEquals(Search search)
         {
-            return _searchInTitle == search._searchInTitle &&
-            _searchInUrl == search._searchInUrl &&
-            _searchInUserName == search._searchInUserName &&
-            _searchInNotes == search._searchInNotes &&
-            _searchInPassword == search._searchInPassword &&
-            _searchInOther == search._searchInOther &&
-            _searchInGroupName == search._searchInGroupName &&
-            _searchInGroupPath == search._searchInGroupPath &&
-            _searchInTags == search._searchInTags &&
-            _searchExcludeExpired == search._searchExcludeExpired &&
-            _searchStringComparison == search._searchStringComparison &&
-            _searchIgnoreGroupSettings == search._searchIgnoreGroupSettings;
+            return _searchInTitle == search._searchInTitle
+                && _searchInUrl == search._searchInUrl
+                && _searchInUserName == search._searchInUserName
+                && _searchInNotes == search._searchInNotes
+                && _searchInPassword == search._searchInPassword
+                && _searchInOther == search._searchInOther
+                && _searchInGroupName == search._searchInGroupName
+                && _searchInGroupPath == search._searchInGroupPath
+                && _searchInTags == search._searchInTags
+                && _searchExcludeExpired == search._searchExcludeExpired
+                && _searchStringComparison == search._searchStringComparison
+                && _searchIgnoreGroupSettings == search._searchIgnoreGroupSettings
+                && _searchMatchDiacritics == search._searchMatchDiacritics;
         }
     }
 }

@@ -26,6 +26,9 @@
     <Setting Name="SearchCaseSensitive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="SearchMatchDiacritics" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="SearchIgnoreGroupSettings" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
