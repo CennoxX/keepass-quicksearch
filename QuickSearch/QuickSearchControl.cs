@@ -46,6 +46,9 @@ namespace QuickSearch
             checkBoxExclude.Checked = Program.Config.MainWindow.QuickFindExcludeExpired;
             checkBoxExclude.DataBindings.Add(new Binding("Checked", Program.Config.MainWindow, "QuickFindExcludeExpired", true, DataSourceUpdateMode.OnPropertyChanged));
 
+            checkBoxGroupPath.Checked = Program.Config.MainWindow.QuickFindSearchInGroupPaths;
+            checkBoxGroupPath.DataBindings.Add(new Binding("Checked", Program.Config.MainWindow, "QuickFindSearchInGroupPaths", true, DataSourceUpdateMode.OnPropertyChanged));
+
             groupBoxSearchIn.Text = LocalizedStrings.m_grpSearchIn;
             checkBoxTitle.Text = LocalizedStrings.m_cbTitle;
             checkBoxUserName.Text = LocalizedStrings.m_cbUserName;
@@ -66,6 +69,7 @@ namespace QuickSearch
             comboBoxSearch.LostFocus += ComboBoxSearch_LostFocus;
             comboBoxSearch.DropDown += ComboBoxSearch_DropDown;
             checkBoxGroupPath.CheckedChanged += CheckBoxGroupPath_CheckedChanged;
+            CheckBoxGroupPath_CheckedChanged(checkBoxGroupPath, EventArgs.Empty);
 
             if (comboBoxSearch.IsHandleCreated)
                 ComboBoxSearch_HandleCreated();
@@ -293,6 +297,7 @@ namespace QuickSearch
             // load KeePass settings
             checkBoxExclude.Checked = Program.Config.MainWindow.QuickFindExcludeExpired;
             checkBoxPassword.Checked = Program.Config.MainWindow.QuickFindSearchInPasswords;
+            checkBoxGroupPath.Checked = Program.Config.MainWindow.QuickFindSearchInGroupPaths;
 
             // show the DropDown
             toolStripDropDownSettings.Show(buttonDropdownSettings, 0, buttonDropdownSettings.Bottom);
@@ -331,14 +336,12 @@ namespace QuickSearch
         {
             if (checkBoxGroupPath.Checked)
             {
-                Settings.Default.SearchInGroupPath = true;
                 Settings.Default.SearchInGroupName = true;
                 checkBoxGroupName.Enabled = false;
                 checkBoxGroupName.Checked = true;
             }
             else
             {
-                Settings.Default.SearchInGroupPath = false;
                 checkBoxGroupName.Enabled = true;
             }
         }

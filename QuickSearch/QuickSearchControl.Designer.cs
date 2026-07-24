@@ -208,8 +208,6 @@
             // checkBoxGroupPath
             // 
             this.checkBoxGroupPath.AutoSize = true;
-            this.checkBoxGroupPath.Checked = global::QuickSearch.Properties.Settings.Default.SearchInGroupPath;
-            this.checkBoxGroupPath.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::QuickSearch.Properties.Settings.Default, "SearchInGroupPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxGroupPath.Location = new System.Drawing.Point(86, 3);
             this.checkBoxGroupPath.Name = "checkBoxGroupPath";
             this.checkBoxGroupPath.Size = new System.Drawing.Size(84, 17);

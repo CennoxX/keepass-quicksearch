@@ -51,7 +51,7 @@ namespace QuickSearch
             _searchInPassword = Program.Config.MainWindow.QuickFindSearchInPasswords;
             _searchInOther = Settings.Default.SearchInOther;
             _searchInGroupName = Settings.Default.SearchInGroupName;
-            _searchInGroupPath = Settings.Default.SearchInGroupPath;
+            _searchInGroupPath = Program.Config.MainWindow.QuickFindSearchInGroupPaths;
             _searchInTags = Settings.Default.SearchInTags;
             _searchExcludeExpired = Program.Config.MainWindow.QuickFindExcludeExpired;
             _searchIgnoreGroupSettings = Settings.Default.SearchIgnoreGroupSettings;
