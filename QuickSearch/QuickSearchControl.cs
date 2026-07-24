@@ -56,7 +56,7 @@ namespace QuickSearch
             checkBoxPassword.Text = LocalizedStrings.m_cbPassword;
             checkBoxUrl.Text = LocalizedStrings.m_cbUrl;
             groupBoxOptions.Text = LocalizedStrings.m_grpOptions;
-            checkBoxCase.Text = LocalizedStrings.m_cbCaseSensitive;
+            checkBoxCase.Text = LocalizedStrings.m_cbMatchCase;
             checkBoxExclude.Text = LocalizedStrings.m_cbExcludeExpired;
             checkBoxGroupSettings.Text = LocalizedStrings.m_cbIgnoreGroupSettings;
             checkBoxTags.Text = LocalizedStrings.m_cbTags;
