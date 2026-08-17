@@ -131,7 +131,7 @@ namespace QuickSearch
                     if ((Program.Config.MainWindow.FocusQuickFindOnRestore && !_tsLast)
                         || (Program.Config.MainWindow.FocusQuickFindOnUntray && _tsLast))
                     {
-                        _qsControl.comboBoxSearch.Select();
+                        mainForm.BeginInvoke((MethodInvoker)(() => _qsControl.comboBoxSearch.Select()));
                     }
                 }
                 _wsLast = mainForm.WindowState;
