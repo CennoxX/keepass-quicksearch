@@ -87,6 +87,19 @@ You can skip step 6 by adding the following at the start of Main() of KeePass:
 ```
 
 ## Changelog
+### [v2.45](../../releases/tag/2.45)
+- **Added**: Regex search support
+- **Added**: Support for group path option
+- **Added**: Support for match diacritics option
+- **Changed**: Improve focus and selection handling
+- **Changed**: Update KeePass submodule
+- **Changed**: Change to forked KeePass submodule
+- **Fixed**: Update KeePass translations and texts
+- **Fixed**: Make search box padding DPI-independent
+
+<details>
+<summary>Full Changelog</summary>
+
 ### [v2.44](../../releases/tag/2.44)
 - **Added**: Respect unhide empty data option
 - **Added**: Default colors for dark theme with KeeTheme
@@ -97,9 +110,6 @@ You can skip step 6 by adding the following at the start of Main() of KeePass:
 - **Fixed**: Color settings not being saved correctly
 - **Fixed**: Search button placement inside the search box for dark mode
 - **Fixed**: Designer serialization errors
-
-<details>
-<summary>Full Changelog</summary>
 
 ### [v2.43](../../releases/tag/2.43)
 - **Added**: Search in group path option
